@@ -4,18 +4,18 @@ def coffee_bot():
   size = get_size()
   temp_option = hot_or_iced()
   drink_type = get_drink_type()
-  print(f"Alright, that's a {size}, {temp_option} {drink_type}")
+  print(f"Alright, that's a {size}, {temp_option}{drink_type}")
   name = input('Can I get your name please? \n')
   print(f"Thanks, {name}! Your drink will ready shortly.")
 
 def get_size():
   res = input('What size drink can I get for you? \n[a] Small \n[b] Medium \n[c] Large \n> ')
   if res == 'a':
-    return 'small'
+    return 'Small'
   elif res == 'b':
-    return 'medium'
+    return 'Medium'
   elif res == 'c':
-    return 'large'
+    return 'Large'
   else:
     print_message()
     # recursive function call keeps prompting user for correct input type
@@ -39,7 +39,7 @@ def hot_or_iced():
   if res == 'a':
     return 'Hot'
   elif res == 'b':
-    return 'Iced'
+    return ice_option()
   else:
     print_message()
     # recursive function call keeps prompting user for correct input type
@@ -57,6 +57,13 @@ def order_latte():
     print_message()
     # recursive function call keeps prompting user for correct input type
     return order_latte()
+
+def ice_option():
+  res = input('Ice cubes or would you like the drinkl blended? \n[a] Ice Cubes \n[b] Blended \n> ')
+  if res == 'a':
+    return 'Iced'
+  if res == 'b':
+    return 'Frappe'
 
 def print_message():
   print("I'm sorry, I did not understand your selection. Please enter the corresponding letter for your response.")
